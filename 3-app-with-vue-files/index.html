@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Certificate CDN</title>
+</head>
+<body>
+    <div id="app">{{ message }}</div>
+
+    <!-- This script tells the browser what "import ... from 'vue'"" is -->
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+            }
+        }
+    </script>
+
+    <!--  Vue main app -->
+    <!--  The type allows to use import inside the script -->
+    <script type="module">
+        import { createApp } from 'vue'
+        import App from './app.js'
+
+        createApp(App).mount('#app')
+    </script>
+</body>
+</html>

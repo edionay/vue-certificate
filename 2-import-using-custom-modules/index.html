@@ -18,10 +18,17 @@
     </script>
 
     <script type="module">
-        import { createApp } from 'vue'
-        import MyComponent from './my-component.js'
+        import { createApp, ref } from 'vue'
 
-        createApp(MyComponent).mount('#app')
+        createApp({
+            setup() {
+                const message = ref('Hello, world')
+                return {
+                    message
+                }
+            },
+            template: `{{ message }}`
+        }).mount('#app')
     </script>
 </body>
 </html>
