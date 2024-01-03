@@ -6,7 +6,8 @@
     <title>Vue Certificate CDN</title>
 </head>
 <body>
-    <div id="app">{{ message }}</div>
+    <div id="ap1">{{ message }}</div>
+    <div id="app2">{{ message }}</div>
 
     <!-- This script tells the browser what "import ... from 'vue'"" is -->
     <script type="importmap">
@@ -23,11 +24,14 @@
         import { createApp } from 'vue'
         import App from './app.js'
 
-        const app = createApp(App)
+        const app1 = createApp(App)
+        const app2 = createApp({
+
+        }).mount('#app2')
         app.config.errorHandler = (error) => {
             window.alert(`Got an error: ${error.message}`)
         }
-        app.mount('#app')
+        app.mount('#app1')
     </script>
 </body>
 </html>

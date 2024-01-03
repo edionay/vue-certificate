@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Certificate CDN</title>
+</head>
+<body>
+<div id="app1">{{ message }}</div>
+<div id="app2">{{ message }}</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    const { createApp, ref } = Vue
+
+    createApp({
+        setup() {
+            const message = ref('Hello from #app1')
+
+            return {
+                message
+            }
+        }
+    }).mount('#app1')
+
+    createApp({
+        setup() {
+            const message = ref('Hello from #app2')
+
+            return {
+                message
+            }
+        }
+    }).mount('#app2')
+</script>
+</body>
+</html>
